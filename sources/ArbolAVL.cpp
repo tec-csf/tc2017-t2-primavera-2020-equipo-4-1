@@ -35,7 +35,6 @@ class AVLtree{
     int height(Node<T> *N);
     T max(T a, T b);
     int getBalance(Node<T> *N);
-    void preOrder(Node<T> *N);
     void search(Node<T> *root, T x);
 };//Close AVLtree
 
@@ -290,187 +289,122 @@ Node<T>* AVLtree<T>::deleteNode(Node<T>* root, T key){
 }//Close deleteNode
 
 template <typename T>
-void AVLtree<T>::search(Node<T> *root, T x)
-{
-  if (root==NULL){
-      cout<<"No se encontro el elemento\n"<<endl;
-  }//Close if 
-  
-  else {
-      if (x < root->key){
-          search(root->left, x);
-      }//Close if 
-      
-      else {
-          if (x>root->key){
-              search(root->right, x);
-          }//Close if
-          
-          else {
-              cout << "Se ha encontrado el elemento.\n" << endl;
-          }//Close else
-      }//Close else
-  }//Close else 
+void AVLtree<T>::search(Node<T> *root, T x){
+    if (root==NULL){
+        cout<<"No se encontro el elemento\n"<<endl;
+    }//Close if 
+    
+    else {
+        if (x < root->key){
+            search(root->left, x);
+        }//Close if 
+        
+        else {
+            if (x>root->key){
+                search(root->right, x);
+            }//Close if
+            
+            else {
+                cout << "Se ha encontrado el elemento.\n" << endl;
+            }//Close else
+        }//Close else
+    }//Close else 
 }//Close search
 
-template <typename T>
-void AVLtree<T>::preOrder(Node<T> *N)
-{
-    if(N != NULL)
-    {
-        cout << N->key << " ";
-        preOrder(N->left);
-        preOrder(N->right);
-    }
-}
-
-void scramble_array(int arr[],int size)
-{
-    srand(time(NULL));
-
-    for(int i = 0; i < size; i++)
-    {
+void scramble_array(int arr[],int size){
+    for(int i = 0; i < size; i++){
         arr[i] = rand()%(size*10);
     }//Close for
 }//Close scramble_array
 
-int main()
-{
+int main(){
+    srand(time(NULL));
     AVLtree<int> t;
     Node<int> *root = NULL;
-    int size = 100000, arr_size, menu_option = 0, nodeValue;
-    bool menu = true;
+    int size1;
+    int size2;
+    int arr_size1;
+    int arr_size2;
+    int selection1;
+    bool menu1 = true;
 
-    int* arr = new int[size];
-    arr_size = size;
+    cout << "Elige una cantidad de enteros: " << endl;
+    cout << "\n1. 10 \n2. 100 \n3. 1,000 \n4. 10,000 \n5. 100,000 \n6. 1,000,000" << endl;
 
-    scramble_array(arr, arr_size);
+    while (menu1 == true){
+        cin >> selection1;
 
-    for (size_t i = 0; i < size; i++)
-    {
-     root = t.insert(root, arr[i++]);
-   }//Close for
+        switch(selection1){
+            case 1: size1 = 10;
+                    menu1 = false;
+                    break;
+            case 2: size1 = 100;
+                    menu1 = false;
+                    break;
+            case 3: size1 = 1000;
+                    menu1 = false;
+                    break;
+            case 4: size1 = 10000;
+                    menu1 = false;
+                    break;
+            case 5: size1 = 100000;
+                    menu1 = false;
+                    break;
+            case 6: size1 = 1000000;
+                    menu1 = false;
+                    break;
+            default: cout << "\nTienes que elegir una cantidad válida." << endl;
+                    break;
+        }//Close switch 
+    }//Close while 
 
-    cout << "\n 1. Insertar \n 2. Borrar \n 3. Buscar \n 4. Imprimir ordenado ascendentemente \n 5. Imprimir ordenado descendientemente \n 6. Obtener altura de un nodo \n 7. Obtener profundidad de un nodo \n 8. Obtener nivel de un nodo \n 9. Salir" << endl;
+    int* arr1 = new int[size1];
+    arr_size1 = size1;
 
-    while (menu)
-    {
-        cout << "\n-----------------------------------------------";
-        cout << "\nSeleccione una operacion: " << endl;
-        cin >> menu_option;
+    scramble_array(arr1, arr_size1);
 
-        if (menu_option == 1)
-        {
-          cout << "\nOperacion seleccionada: Insertar" << endl;
-          auto start = high_resolution_clock::now();
+    for (size_t i = 0; i < size1; i++){
+        cout << "Arreglo 1: " << arr1[i] << endl;
+    }//Close for
 
-          cout << "Inserta un valor: " << endl;
-          cin >> nodeValue;
+    auto start = high_resolution_clock::now();
+    for (size_t i = 0; i < size1; i++){
+        root = t.insert(root, arr1[i]);
+    }//Close for
+    auto stop = high_resolution_clock::now();
 
-          root = t.insert(root, nodeValue);
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "\nTiempo de ejecución de creación de árbol: " << duration.count() << " microsegundos." << endl;
 
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
+    int* arr2 = new int[10];
+    arr_size2 = 10;
 
-        else if (menu_option == 2)
-        {
-          cout << "\nOperacion seleccionada: Borrar" << endl;
-          auto start = high_resolution_clock::now();
+    scramble_array(arr2, arr_size2);
 
-          cout << "Inserta un valor para borrar: " << endl;
-          cin >> nodeValue;
+    for (size_t i = 0; i < arr_size2; i++){
+        cout << "Arreglo 2: " << arr2[i] << endl;
+    }//Close for
 
-          root = t.deleteNode(root, nodeValue);
+    for (size_t i = 0; i < arr_size2; i++){
+        auto start = high_resolution_clock::now();
+        t.search(root, arr2[i]);
+        auto stop = high_resolution_clock::now();
 
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
+        auto duration = duration_cast<microseconds>(stop - start);
+        cout << "\nTiempo de ejecución de busqueda " << i << ": " << duration.count() << " microsegundos." << endl;
+    }//Close for
 
-        else if (menu_option == 3)
-        {
-          cout << "\nOperacion seleccionada: Buscar" << endl;
-          auto start = high_resolution_clock::now();
+    for (size_t i = 0; i < arr_size2; i++){
+        auto start = high_resolution_clock::now();
+        root = t.deleteNode(root, arr2[i]);
+        auto stop = high_resolution_clock::now();
 
-          cout << "Inserta un valor para buscar: " << endl;
-          cin >> nodeValue;
+        auto duration = duration_cast<microseconds>(stop - start);
+        cout << "\nTiempo de ejecución de borrado " << i << ": " << duration.count() << " microsegundos." << endl;
+    }//Close for
 
-          t.search(root, nodeValue);
-
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 4)
-        {
-          cout << "\nOperacion seleccionada: Imprimir ordenado ascendentemente" << endl;
-          auto start = high_resolution_clock::now();
-
-          t.preOrder(root);
-
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 5)
-        {
-          cout << "\nOperacion seleccionada: Imprimir ordenado descendientemente" << endl;
-          auto start = high_resolution_clock::now();
-          //Imprimir
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 6)
-        {
-          cout << "\nOperacion seleccionada: Obtener altura de un nodo" << endl;
-          auto start = high_resolution_clock::now();
-
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 7)
-        {
-          cout << "\nOperacion seleccionada: Obtener profundidad de un nodo" << endl;
-          auto start = high_resolution_clock::now();
-          //Profundidad
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 8)
-        {
-          cout << "\nOperacion seleccionada: Obtener nivel de un nodo" << endl;
-          auto start = high_resolution_clock::now();
-          //Nivel
-          auto stop = high_resolution_clock::now();
-          auto duration = duration_cast<microseconds>(stop - start);
-          cout << "\nTiempo de ejecucion: " << duration.count() << " microsegundos." << endl;
-        }//Close if
-
-        else if (menu_option == 9)
-        {
-          cout << "\nSaliendo." << endl;
-          menu = false;
-        }//Close if
-
-        else
-        {
-          cout << "\nInput no es valido, seleccione una opcion valida." << endl;
-        }//Close else
-    }//Close while
-
-    cout << "\n";
-
-    delete [] arr;
+    delete [] arr1;
+    delete [] arr2;
 
     return 0;
 }//Close main
