@@ -1,0 +1,11 @@
+language: cpp
+
+compiler: gcc
+
+dist: bionic
+
+script:
+- cd sources/
+- g++ ArbolAVL.cpp -o ArbolAVL
+
+
