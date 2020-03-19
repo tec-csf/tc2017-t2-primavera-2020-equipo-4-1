@@ -291,7 +291,7 @@ Node<T>* AVLtree<T>::deleteNode(Node<T>* root, T key){
 template <typename T>
 void AVLtree<T>::search(Node<T> *root, T x){
     if (root==NULL){
-        cout<<"No se encontro el elemento\n"<<endl;
+        cout << "\nNo se encontró el elemento" << endl;
     }//Close if 
     
     else {
@@ -305,7 +305,7 @@ void AVLtree<T>::search(Node<T> *root, T x){
             }//Close if
             
             else {
-                cout << "Se ha encontrado el elemento.\n" << endl;
+                cout << "\nSe ha encontrado el elemento." << endl;
             }//Close else
         }//Close else
     }//Close else 
@@ -363,9 +363,9 @@ int main(){
 
     scramble_array(arr1, arr_size1);
 
-    for (size_t i = 0; i < size1; i++){
+    /*for (size_t i = 0; i < size1; i++){
         cout << "Arreglo 1: " << arr1[i] << endl;
-    }//Close for
+    }//Close for*/
 
     auto start = high_resolution_clock::now();
     for (size_t i = 0; i < size1; i++){
@@ -381,9 +381,9 @@ int main(){
 
     scramble_array(arr2, arr_size2);
 
-    for (size_t i = 0; i < arr_size2; i++){
+    /*for (size_t i = 0; i < arr_size2; i++){
         cout << "Arreglo 2: " << arr2[i] << endl;
-    }//Close for
+    }//Close for*/
 
     for (size_t i = 0; i < arr_size2; i++){
         auto start = high_resolution_clock::now();
@@ -391,7 +391,7 @@ int main(){
         auto stop = high_resolution_clock::now();
 
         auto duration = duration_cast<microseconds>(stop - start);
-        cout << "\nTiempo de ejecución de busqueda " << i << ": " << duration.count() << " microsegundos." << endl;
+        cout << "Tiempo de ejecución de busqueda " << i + 1 << ": " << duration.count() << " microsegundos." << endl;
     }//Close for
 
     for (size_t i = 0; i < arr_size2; i++){
@@ -400,7 +400,7 @@ int main(){
         auto stop = high_resolution_clock::now();
 
         auto duration = duration_cast<microseconds>(stop - start);
-        cout << "\nTiempo de ejecución de borrado " << i << ": " << duration.count() << " microsegundos." << endl;
+        cout << "\nTiempo de ejecución de borrado " << i + 1 << ": " << duration.count() << " microsegundos." << endl;
     }//Close for
 
     delete [] arr1;
