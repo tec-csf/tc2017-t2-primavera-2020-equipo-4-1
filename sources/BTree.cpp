@@ -87,12 +87,15 @@ class BTree
 {
     BTreeNode<T> *root; // Pointer to root node
     int t;  // Minimum degree
+    FILE &datos;
 public:
 
     // Constructor (Initializes tree as empty)
     BTree(T _t)
     {
-        root = NULL;
+        datos=fopen("datos.bin", "w");
+        //T pos = fseek(datos, 2*_t , SEEK_SET);
+        root = datos;
         t = _t;
     }
 
