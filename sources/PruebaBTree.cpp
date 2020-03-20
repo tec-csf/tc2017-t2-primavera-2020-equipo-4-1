@@ -1,4 +1,5 @@
 #include<iostream> 
+# include <fstream>
 using namespace std; 
   
 // A BTree node 
@@ -79,12 +80,15 @@ class BTree
 { 
     BTreeNode *root; // Pointer to root node 
     int t;  // Minimum degree 
+    FILE *datos;
 public: 
   
     // Constructor (Initializes tree as empty) 
     BTree(int _t) 
     { 
-        root = NULL; 
+        int root = 0;
+        
+        datos = fopen("datos.bin", "w");
         t = _t; 
     } 
   
