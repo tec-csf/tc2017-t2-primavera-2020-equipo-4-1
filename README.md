@@ -66,7 +66,7 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 *7.- El siguiente paso, para poder correrlo, es ingresar el siguiente comando: "./B. Despues se pedira que se ingrese el grado del árbol.*
 
-*8.- Finalmente se debe esscoger el tamaño de elementos que tendra el árbol.*
+*8.- Finalmente se debe escoger el tamaño de elementos que tendra el árbol.*
 
 ## 3. Referencias
 
