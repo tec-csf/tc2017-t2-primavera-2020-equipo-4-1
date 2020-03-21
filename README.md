@@ -40,7 +40,7 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ## 2. Solución
 
-*Dependiendo de qué tipo de árbol se quiera utilizar en  la carpeta sources se deberá seleccionar el archivo adecuado. En ambos casos se le solicita al usuario que introduzca que cantidad de elementos deberá contener el árbol. las opciones son 10, 100, 1000, 10000, 100000, 1000000. Se llenará el árbol con números aleatoríos según el tamaño de elementos que se haya seleccionado. Esto se hace en un arreglo llamado arr1 y se hace con la función scramble_array() que usa la función rand(). Después de que al árbol fue llenado, se imprime el tiempo de ejecución de la creación del árbol. Al terminar eso. se llena un arreglo de siempre 10 elementos sin importar la cantidad de elementos que se escoja al inicio del programa, estos también se imprimen en pantalla. Este arreglo también será llenado con números aletoríos con la función scramble_array(). Posteriormente se realizara una búsqueda de esos elementos en el arreglo existan o no, esto se hace con la función search(), para esta operación también se miden los tiempos de búsqueda. Todas las mediciones de tiempos se realizan con la función high resolution clock que permite medir en microsegundos. Al terminar con la búsqueda de los elementos en el árbol se imprime el resultado de la búsqueda y si estaban presentes o no. Una vez terminada la búsqueda realizan las mediciones de tiempo pertinentes y posteriormente la eliminación de los 10 elementos generados al azar con la función deleteNode(). Para la eliminación también se miden los tiempos de ejecución y como todos los demás también se imprimen en pantalla. Finalmente se eliminan los dos arreglos y termina el programa.*
+*Dependiendo de qué tipo de árbol se quiera utilizar en  la carpeta sources se deberá seleccionar el archivo adecuado. En ambos casos se le solicita al usuario que introduzca que cantidad de elementos deberá contener el árbol. las opciones son 10, 100, 1000, 10000, 100000, 1000000. En el caso del árbol tambien se le pedira al usuario que ingrese el grado el arbol. Se llenará el árbol con números aleatoríos según el tamaño de elementos que se haya seleccionado. Esto se hace en un arreglo llamado arr1 y se hace con la función scramble_array() que usa la función rand(). Después de que al árbol fue llenado, se imprime el tiempo de ejecución de la creación del árbol. Al terminar eso. se llena un arreglo de siempre 10 elementos sin importar la cantidad de elementos que se escoja al inicio del programa, estos también se imprimen en pantalla. Este arreglo también será llenado con números aletoríos con la función scramble_array(). Posteriormente se realizara una búsqueda de esos elementos en el arreglo existan o no, esto se hace con la función search(), para esta operación también se miden los tiempos de búsqueda. Todas las mediciones de tiempos se realizan con la función high resolution clock que permite medir en microsegundos. Al terminar con la búsqueda de los elementos en el árbol se imprime el resultado de la búsqueda y si estaban presentes o no. Una vez terminada la búsqueda realizan las mediciones de tiempo pertinentes y posteriormente la eliminación de los 10 elementos generados al azar con la función deleteNode(). Para la eliminación también se miden los tiempos de ejecución y como todos los demás también se imprimen en pantalla. Finalmente se eliminan los dos arreglos y termina el programa.*
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
 
@@ -54,11 +54,19 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 *5.- Una vez que estés dentro de la carpeta del repositorio tendras que acceder a la carpeta de sources con el siguente comando: "cd sources".*
 
+*-Árbol AVL.*
+
 *6.- Para poder utilizar el primer programa primero deberas compilar con el siguiente comando: "g++ ArbolAVL.cpp -o ArbolAVL".*
 
 *7.- El siguiente paso, para poder correrlo, es ingresar el siguiente comando: "./ArbolAVL. Despues se pedira que se ingrese un número para seleccionar la cantidad de elementos que se van a usar.*
 
-*8.- 
+*-Árbol B.*
+
+*6.- Para poder utilizar el segundo programa primero deberas compilar con el siguiente comando: "g++ B.cpp -o B".*
+
+*7.- El siguiente paso, para poder correrlo, es ingresar el siguiente comando: "./B. Despues se pedira que se ingrese el grado del árbol.*
+
+*8.- Finalmente se debe esscoger el tamaño de elementos que tendra el árbol.*
 
 ## 3. Referencias
 
