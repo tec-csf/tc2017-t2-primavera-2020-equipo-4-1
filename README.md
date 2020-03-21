@@ -68,7 +68,6 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 *8.- Finalmente se debe esscoger el tamaño de elementos que tendra el árbol.*
 
-
 ## 3. Referencias
 
 *[Benchoff, B. (2016, February 29). Introducing The Raspberry Pi 3. Retrieved March 19, 2020, from https://hackaday.com/2016/02/28/introducing-the-raspberry-pi-3/]*
