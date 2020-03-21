@@ -75,3 +75,5 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 *[GeeksforGeeks. (2017, May 29). Chrono in C . Retrieved March 19, 2020, from https://www.geeksforgeeks.org/chrono-in-c/]*
 
 *GeeksforGeeks. (2019). Delete Operation in B-Tree. Retrieved March 17, 2020, from https://www.geeksforgeeks.org/delete-operation-in-b-tree/*
+
+*GeeksforGeeks. (2019, August 7). AVL Tree: Set 2 (Deletion). Retrieved March 20, 2020, from https://www.geeksforgeeks.org/avl-tree-set-2-deletion/*
