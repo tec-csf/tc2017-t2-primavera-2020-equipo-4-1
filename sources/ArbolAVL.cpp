@@ -359,6 +359,7 @@ void AVLtree<T>::search(Node<T> *root, T x){
 }//Close search
     /**
      * Fills array with random numbers.
+     * 
      * @param[in] array and size.
      * 
      * @returns array filled with random numbers.

@@ -39,7 +39,10 @@ It is advised to read the material in CLRS before taking a look at the code. */
 using namespace std; 
 using namespace std::chrono;
 
-// A BTree node 
+/**
+ * An B tree node
+ *     
+*/
 template <typename T>
 class BTreeNode{ 
 	T *keys; // An array of keys 
@@ -113,7 +116,10 @@ class BTreeNode{
 	template<typename F>
 	friend class BTree; 
 }; 
-
+/**
+ * A B tree 
+ *     
+*/
 template <typename T>
 class BTree 
 { 
@@ -127,13 +133,24 @@ public:
 		root = NULL; 
 		t = _t; 
 	} 
-
+    /**
+     * A utility function to get height of the tree.
+     * 
+     * @param[in] Non.
+     * 
+     * @returns Traverse the tree.
+    */ 
 	void traverse() 
 	{ 
 		if (root != NULL) root->traverse(); 
 	} 
-
-	// function to search a key in this tree 
+    /**
+     * Function to search a key in this tree .
+     * 
+     * @param[in] Search for key.
+     * 
+     * @returns The searched key.
+    */ 
 	BTreeNode<T>* search(T k) 
 	{ 
 		return (root == NULL)? NULL : root->search(k); 
@@ -162,9 +179,14 @@ BTreeNode<T>::BTreeNode(T t1, bool leaf1)
 	// Initialize the number of keys as 0 
 	n = 0; 
 } 
-
-// A utility function that returns the index of the first key that is 
-// greater than or equal to k 
+    /**
+     * A utility function that returns the index of the first key that is 
+		 * greater than or equal to k 
+     * 
+     * @param[in] key.
+     * 
+     * @returns Returns the index of key.
+    */ 
 template <typename T>
 int BTreeNode<T>::findKey(T k) 
 { 
@@ -173,8 +195,13 @@ int BTreeNode<T>::findKey(T k)
 		++idx; 
 	return idx; 
 } 
-
-// A function to remove the key k from the sub-tree rooted with this node 
+    /**
+     * A function to remove the key k from the sub-tree rooted with this node 
+     * 
+     * @param[in] key.
+     * 
+     * @returns Returns if there was a removed key.
+    */ 
 template <typename T>
 void BTreeNode<T>::remove(T k) 
 { 
@@ -221,8 +248,13 @@ void BTreeNode<T>::remove(T k)
 	} 
 	return; 
 } 
-
-// A function to remove the idx-th key from this node - which is a leaf node 
+    /**
+     * A function to remove the idx-th key from this node which is a leaf node 
+     * 
+     * @param[in] index.
+     * 
+     * 
+    */ 
 template <typename T>
 void BTreeNode<T>::removeFromLeaf (int idx) 
 { 
@@ -236,8 +268,12 @@ void BTreeNode<T>::removeFromLeaf (int idx)
 
 	return; 
 } 
-
-// A function to remove the idx-th key from this node - which is a non-leaf node 
+    /**
+     * A function to remove the idx-th key from this node which is a non-leaf node  
+     * 
+     * @param[in] index.
+     * 
+    */ 
 template <typename T>
 void BTreeNode<T>::removeFromNonLeaf(int idx) 
 { 
@@ -278,8 +314,13 @@ void BTreeNode<T>::removeFromNonLeaf(int idx)
 	} 
 	return; 
 } 
-
-// A function to get predecessor of keys[idx] 
+    /**
+     * A function to get predecessor of keys[idx]. 
+     * 
+     * @param[in] index.
+     * 
+     * @returns Returns the predecessor.
+    */  
 template <typename T>
 int BTreeNode<T>::getPred(int idx) 
 { 
@@ -291,7 +332,13 @@ int BTreeNode<T>::getPred(int idx)
 	// Return the last key of the leaf 
 	return cur->keys[cur->n-1]; 
 } 
-
+    /**
+     * A function to get succesor of keys[idx]. 
+     * 
+     * @param[in] index.
+     * 
+     * @returns Returns the succesor.
+    */  
 template <typename T>
 int BTreeNode<T>::getSucc(int idx) 
 { 
@@ -332,9 +379,13 @@ void BTreeNode<T>::fill(int idx)
 	} 
 	return; 
 } 
-
-// A function to borrow a key from C[idx-1] and insert it 
-// into C[idx] 
+    /**
+     * A function to borrow a key from C[idx-1] and insert it 
+		 * into C[idx] 
+     * 
+     * @param[in] index.
+     * 
+    */  
 template <typename T>
 void BTreeNode<T>::borrowFromPrev(int idx) 
 { 
@@ -373,9 +424,13 @@ void BTreeNode<T>::borrowFromPrev(int idx)
 
 	return; 
 } 
-
-// A function to borrow a key from the C[idx+1] and place 
-// it in C[idx]
+    /**
+     * A function to borrow a key from the C[idx+1] and place 
+		 * it in C[idx]
+     * 
+     * @param[in] index.
+     * 
+    */  
 template <typename T>
 void BTreeNode<T>::borrowFromNext(int idx) 
 { 
@@ -412,9 +467,13 @@ void BTreeNode<T>::borrowFromNext(int idx)
 
 	return; 
 } 
-
-// A function to merge C[idx] with C[idx+1] 
-// C[idx+1] is freed after merging
+    /**
+     * A function to merge C[idx] with C[idx+1] 
+		 * C[idx+1] is freed after merging
+     * 
+     * @param[in] index.
+     * 
+    */  
 template <typename T>
 void BTreeNode<T>::merge(int idx) 
 { 
@@ -454,8 +513,12 @@ void BTreeNode<T>::merge(int idx)
 	delete(sibling); 
 	return; 
 } 
-
-// The main function that inserts a new key in this B-Tree
+    /**
+     * The main function that inserts a new key in this B-Tree 
+     * 
+     * @param[in] key.
+     * 
+    */
 template <typename T> 
 void BTree<T>::insert(T k) 
 { 
@@ -495,10 +558,14 @@ void BTree<T>::insert(T k)
 			root->insertNonFull(k); 
 	} 
 } 
-
-// A utility function to insert a new key in this node 
-// The assumption is, the node must be non-full when this 
-// function is called 
+    /**
+     * A utility function to insert a new key in this node 
+		 * The assumption is, the node must be non-full when this 
+		 * function is called 
+		 * 
+     * @param[in] key.
+     * 
+    */
 template <typename T>
 void BTreeNode<T>::insertNonFull(T k) 
 { 
@@ -542,9 +609,13 @@ void BTreeNode<T>::insertNonFull(T k)
 		C[i+1]->insertNonFull(k); 
 	} 
 } 
-
-// A utility function to split the child y of this node 
-// Note that y must be full when this function is called 
+    /**
+     * A utility function to split the child y of this node 
+		 * Note that y must be full when this function is called 
+		 * 
+     * @param[in] index and pointer to y.
+     * 
+    */
 template <typename T>
 void BTreeNode<T>::splitChild(int i, BTreeNode<T> *y) 
 { 
@@ -586,8 +657,12 @@ void BTreeNode<T>::splitChild(int i, BTreeNode<T> *y)
 	// Increment count of keys in this node 
 	n = n + 1; 
 } 
-
-// Function to traverse all nodes in a subtree rooted with this node 
+    /**
+     * Function to traverse all nodes in a subtree rooted with this node
+		 * 
+     * @param[in] non.
+     * 
+    */ 
 template <typename T>
 void BTreeNode<T>::traverse() 
 { 
@@ -607,8 +682,13 @@ void BTreeNode<T>::traverse()
 	if (leaf == false) 
 		C[i]->traverse(); 
 } 
-
-// Function to search key k in subtree rooted with this node
+    /**
+     * Function to search key k in subtree rooted with this node 
+		 * 
+     * @param[in] key.
+     * 
+		 * @returns Returns the searched key.
+    */
 template <typename T>
 BTreeNode<T> *BTreeNode<T>::search(T k) 
 { 
@@ -628,7 +708,13 @@ BTreeNode<T> *BTreeNode<T>::search(T k)
 	// Go to the appropriate child 
 	return C[i]->search(k); 
 } 
-
+    /**
+     * Function to remove key k in subtree rooted with this node 
+		 * 
+     * @param[in] key.
+     * 
+		 * @returns Returns the removed key.
+    */
 template <typename T>
 void BTree<T>::remove(T k) 
 { 
@@ -656,7 +742,13 @@ void BTree<T>::remove(T k)
 	} 
 	return; 
 } 
-
+    /**
+     * Fills array with random numbers.
+		 * 
+     * @param[in] array and size.
+     * 
+     * @returns array filled with random numbers.
+    */ 
 void scramble_array(int arr[],int size){
     for(int i = 0; i < size; i++){
         arr[i] = rand()%(size*10);
