@@ -381,7 +381,7 @@ int main(){
     int selection1;
     bool menu1 = true;
 
-    cout << "Elige una cantidad de enteros: " << endl;
+    cout << "\nElige una cantidad de enteros: " << endl;
     cout << "\n1. 10 \n2. 100 \n3. 1,000 \n4. 10,000 \n5. 100,000 \n6. 1,000,000" << endl;
 
     while (menu1 == true){

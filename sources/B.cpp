@@ -783,7 +783,7 @@ int main()
     int selection1;
     bool menu1 = true;
 
-    cout << "Elige una cantidad de enteros: " << endl;
+    cout << "\nElige una cantidad de enteros: " << endl;
     cout << "\n1. 10 \n2. 100 \n3. 1,000 \n4. 10,000 \n5. 100,000 \n6. 1,000,000" << endl;
 
     while (menu1 == true){
@@ -818,9 +818,9 @@ int main()
 
     scramble_array(arr1, arr_size1);
 
-    for (size_t i = 0; i < size1; i++){
+    /*for (size_t i = 0; i < size1; i++){
         cout << "Arreglo 1: " << arr1[i] << endl;
-    }//Close for
+    }//Close for*/
 
     auto start = high_resolution_clock::now();
     for (size_t i = 0; i < size1; i++){
@@ -836,9 +836,9 @@ int main()
 
     scramble_array(arr2, arr_size2);
 
-    for (size_t i = 0; i < arr_size2; i++){
+    /*for (size_t i = 0; i < arr_size2; i++){
         cout << "Arreglo 2: " << arr2[i] << endl;
-    }//Close for
+    }//Close for*/
 
     for (size_t i = 0; i < arr_size2; i++){
         auto start = high_resolution_clock::now();
@@ -846,7 +846,7 @@ int main()
         auto stop = high_resolution_clock::now();
 
         auto duration = duration_cast<microseconds>(stop - start);
-        cout << "Tiempo de ejecución de busqueda " << i + 1 << ": " << duration.count() << " microsegundos." << endl;
+        cout << "\nTiempo de ejecución de busqueda " << i + 1 << ": " << duration.count() << " microsegundos." << endl;
     }//Close for
 
 	cout << "\n" << endl;
