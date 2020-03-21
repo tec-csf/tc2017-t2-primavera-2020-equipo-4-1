@@ -74,3 +74,5 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 *[Benchoff, B. (2016, February 29). Introducing The Raspberry Pi 3. Retrieved March 19, 2020, from https://hackaday.com/2016/02/28/introducing-the-raspberry-pi-3/]*
 
 *[GeeksforGeeks. (2017, May 29). Chrono in C . Retrieved March 19, 2020, from https://www.geeksforgeeks.org/chrono-in-c/]*
+
+*GeeksforGeeks. (2019). Delete Operation in B-Tree. Retrieved March 17, 2020, from https://www.geeksforgeeks.org/delete-operation-in-b-tree/*
