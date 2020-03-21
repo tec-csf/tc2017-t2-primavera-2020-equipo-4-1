@@ -322,7 +322,6 @@ int main(){
     AVLtree<int> t;
     Node<int> *root = NULL;
     int size1;
-    int size2;
     int arr_size1;
     int arr_size2;
     int selection1;
