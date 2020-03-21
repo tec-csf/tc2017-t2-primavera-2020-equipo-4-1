@@ -44,8 +44,24 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
 
-*[Incluya aquí una guía paso a paso para poder utilizar la aplicación, desde la clonación del repositorio, la compilación del código hasta la ejecución de los ejemplos para visualizar los resultados.]*
+*1.- Abrir la terminal.*
+
+*2.- Acceder al directorio donde vas a clonar el repositorio. Ej: cd desktop.*
+
+*3.- Usar el comando "git clone" seguido del link del repositorio, que es  el siguiente: https://github.com/tec-csf/tc2017-t2-primavera-2020-equipo-4-1.git . Quedaria de la siguente manera: "git clone https://github.com/tec-csf/tc2017-t2-primavera-2020-equipo-4-1.git.*
+
+*4.- Acceder al clon/carpeta del repositorio desde la terminal, el cuál se guardó donde se hizo el "git clone". Ej: "cd tc2017-t2-primavera-2020-equipo-4-1".*
+
+*5.- Una vez que estés dentro de la carpeta del repositorio tendras que acceder a la carpeta de sources con el siguente comando: "cd sources".*
+
+*6.- Para poder utilizar el primer programa primero deberas compilar con el siguiente comando: "g++ ArbolAVL.cpp -o ArbolAVL".*
+
+*7.- El siguiente paso, para poder correrlo, es ingresar el siguiente comando: "./ArbolAVL. Despues se pedira que se ingrese un número para seleccionar la cantidad de elementos que se van a usar.*
+
+*8.- 
 
 ## 3. Referencias
 
-*[Incluya aquí las referencias a sitios de interés y cualquier otra información que haya utilizado para realizar la actividad y que le puedan ser de utilidad a otras personas que quieran usarlo como referencia]*
+*[Benchoff, B. (2016, February 29). Introducing The Raspberry Pi 3. Retrieved March 19, 2020, from https://hackaday.com/2016/02/28/introducing-the-raspberry-pi-3/]*
+
+*[GeeksforGeeks. (2017, May 29). Chrono in C . Retrieved March 19, 2020, from https://www.geeksforgeeks.org/chrono-in-c/]*

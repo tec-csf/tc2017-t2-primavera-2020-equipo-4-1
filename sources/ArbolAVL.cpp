@@ -13,7 +13,10 @@ Descripcion: Programa que implementa el arbol AVL
 using namespace std;
 using namespace std::chrono;
 
-// An AVL tree node
+/**
+ * An AVL tree node
+ *     
+*/
 template <typename T>
 class Node{
     public:
@@ -22,7 +25,10 @@ class Node{
     Node *right;
     T height;
 };//Close Node
-
+/**
+ * The class for the AVL Tree
+ *     
+*/
 template <typename T>
 class AVLtree{
     public:
@@ -37,8 +43,13 @@ class AVLtree{
     int getBalance(Node<T> *N);
     void search(Node<T> *root, T x);
 };//Close AVLtree
-
-// A utility function to get height of the tree
+    /**
+     * A utility function to get height of the tree.
+     * 
+     * @param[in] Node with the height.
+     * 
+     * @returns The height of the node.
+    */ 
 template <typename T>
 int AVLtree<T>::height(Node<T> *N){
     if (N == NULL){
@@ -47,15 +58,24 @@ int AVLtree<T>::height(Node<T> *N){
 
     return N->height;
 }//Close height
-
-// A utility function to get maximum of two integers
+    /**
+     *  A utility function to get maximum of two integers.
+     * 
+     * @param[in] two values.
+     * 
+     * @returns Returns the maximum integer.
+    */ 
 template <typename T>
 T AVLtree<T>::max(T a, T b){
     return (a > b)? a : b;
 }//Close max
-
-/* Helper function that allocates a new node with the
-given key and NULL left and right pointers. */
+    /**
+     * Helper function that allocates a new node with the 
+     * given key and NULL left and right pointers..
+     * @param[in] Key.
+     * 
+     * @returns Returns new node.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::newNode(T key){
     Node<T>* node = new Node<T>();
@@ -66,9 +86,13 @@ Node<T>* AVLtree<T>::newNode(T key){
                       // added at leaf
     return(node);
 }//Close newNode
-
-// A utility function to right rotate subtree rooted
-// with y. See the diagram given above.
+    /**
+     *  A utility function to right rotate subtree rooted
+     *  with y. See the diagram given above.
+     * @param[in] Node that points on y.
+     * 
+     * @returns Returns new root.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::rightRotate(Node<T> *y){
     Node<T> *x = y->left;
@@ -85,9 +109,13 @@ Node<T>* AVLtree<T>::rightRotate(Node<T> *y){
     // Return new root
     return x;
 }//Close rightRotate
-
-// A utility function to left rotate subtree rooted with x
-// See the diagram given above.
+    /**
+     * A utility function to left rotate subtree rooted with x.
+     * See the diagram given above.
+     * @param[in] Node that points on x.
+     * 
+     * @returns Returns new root.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::leftRotate(Node<T> *x){
     Node<T> *y = x->right;
@@ -104,8 +132,12 @@ Node<T>* AVLtree<T>::leftRotate(Node<T> *x){
     // Return new root
     return y;
 }//Close leftRotate
-
-// Get Balance factor of node N
+    /**
+     * Get Balance factor of node N
+     * @param[in] Node N.
+     * 
+     * @returns Returns balance.
+    */ 
 template <typename T>
 int AVLtree<T>::getBalance(Node<T> *N){
     if (N == NULL){
@@ -114,7 +146,12 @@ int AVLtree<T>::getBalance(Node<T> *N){
 
     return height(N->left) - height(N->right);
 }//Close getBalance
-
+    /**
+     * Insert and balance
+     * @param[in] Node and key.
+     * 
+     * @returns Returns node or rotation or new node.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::insert(Node<T>* node, T key){
     /* 1. Perform the normal BST rotation */
@@ -170,11 +207,14 @@ Node<T>* AVLtree<T>::insert(Node<T>* node, T key){
     /* return the (unchanged) node pointer */
     return node;
 }//Close insert
-
-/* Given a non-empty binary search tree,
-return the node with minimum key value
-found in that tree. Note that the entire
-tree does not need to be searched. */
+    /**
+     * Given a non-empty binary search tree,
+     * return the node with minimum key value
+     * found in that tree.
+     * @param[in] Node.
+     * 
+     * @returns Returns current.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::minValueNode(Node<T>* node){
     Node<T>* current = node;
@@ -186,11 +226,14 @@ Node<T>* AVLtree<T>::minValueNode(Node<T>* node){
 
     return current;
 }//Close minValueNode
-
-// Recursive function to delete a node
-// with given key from subtree with
-// given root. It returns root of the
-// modified subtree.
+    /**
+     * Recursive function to delete a node
+     * with given key from subtree with
+     * given root.
+     * @param[in] root and key.
+     * 
+     * @returns It returns root of the modified subtree.
+    */ 
 template <typename T>
 Node<T>* AVLtree<T>::deleteNode(Node<T>* root, T key){
     // STEP 1: PERFORM STANDARD BST DELETE
@@ -287,7 +330,11 @@ Node<T>* AVLtree<T>::deleteNode(Node<T>* root, T key){
 
     return root;
 }//Close deleteNode
-
+    /**
+     * Search a certain node.
+     * @param[in] root and element.
+     * 
+    */ 
 template <typename T>
 void AVLtree<T>::search(Node<T> *root, T x){
     if (root==NULL){
@@ -310,13 +357,19 @@ void AVLtree<T>::search(Node<T> *root, T x){
         }//Close else
     }//Close else 
 }//Close search
-
+    /**
+     * Fills array with random numbers.
+     * @param[in] array and size.
+     * 
+     * @returns array filled with random numbers.
+    */ 
 void scramble_array(int arr[],int size){
     for(int i = 0; i < size; i++){
         arr[i] = rand()%(size*10);
     }//Close for
 }//Close scramble_array
 
+//Does testing for insert, erase and search with a range of numbers
 int main(){
     srand(time(NULL));
     AVLtree<int> t;
